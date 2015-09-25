@@ -56,6 +56,9 @@ cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 printf 'Changing time zone...'
 cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
 
+printf 'Disabling super key...'
+cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
+
 ##########################
 ##    Setup configs...  ##
 ##########################
@@ -81,4 +84,3 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 # Set vim settings
 # Change hostname
 	# http://www.blackmoreops.com/2013/12/12/change-hostname-kali-linux/#Change_hostname_permanently_without_reboot
-# disable double command expose
