@@ -59,6 +59,8 @@ cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE
 ##########################
 ##    Setup configs...  ##
 ##########################
+printf 'Configuring Sublime Text...'
+cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
 
 ##########################
 ##     Other stuff...   ##
@@ -77,7 +79,6 @@ cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE
 # Set gedit preferences
 # Set bash profile
 # Set tmux settings
-# Set Sublime Text settings
 # Set vim settings
 # Change hostname
 	# http://www.blackmoreops.com/2013/12/12/change-hostname-kali-linux/#Change_hostname_permanently_without_reboot
