@@ -1,3 +1,13 @@
+cmd_exe () {
+	eval $@ >/dev/null 2>&1
+	# echo $1
+	if [ $? -eq 0 ]; then
+		printf "[\033[32mOK\033[0m]\n"
+	else
+		printf "[\033[31mFAIL\033[0m]\n"
+	fi
+}
+
 ##########################
 ##      Variables       ##
 ##########################
@@ -7,44 +17,44 @@ TIMEZONE="America/New_York"
 ##########################
 ## First things first...##
 ##########################
-# Change password
+printf 'Change password...\n'
 passwd
 
-# Update Kali
-apt-get update && apt-get upgrade -y
+printf 'Updating Kali...'
+cmd_exe "apt-get update && apt-get upgrade -y"
 
 ##########################
 ##      App Installs... ##
 ##########################
-# Install SSH server
-apt-get install -y openssh-server
+printf 'Installing SSH server...'
+cmd_exe "apt-get install -y openssh-server"
 
-# Install sublime text 3
-wget -O ~/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i ~/sublime_text_3.deb && rm ~/sublime_text_3.deb
+printf 'Installing Sublime Text 3...'
+cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
-# Install Chromium
-apt-get install -y chromium
+printf 'Installing Chromium...'
+cmd_exe "apt-get install -y chromium"
 
 ##########################
 ##       Tweeks...      ##
 ##########################
-# Disable screen lock
-gsettings set org.gnome.desktop.lockdown disable-lock-screen true
+printf 'Disabling screen lock...'
+cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
 
-# Disable screensaver
-gsettings set org.gnome.desktop.session idle-delay 0
+printf 'Disabling screensaver...'
+cmd_exe "gsettings set org.gnome.desktop.session idle-delay 0"
 
-# Show home icon on desktop
-gsettings set org.gnome.nautilus.desktop home-icon-visible true
+printf 'Show home icon on desktop...'
+cmd_exe "gsettings set org.gnome.nautilus.desktop home-icon-visible true"
 
-# Show trash icon on desktop
-gsettings set org.gnome.nautilus.desktop trash-icon-visible true
+printf 'Show trash icon on desktop...'
+cmd_exe "gsettings set org.gnome.nautilus.desktop trash-icon-visible true"
 
-# 12 hour time
-gsettings set org.gnome.desktop.interface clock-format '12h'
+printf '12 hour time...'
+cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 
-# Change time zone
-echo $TIMEZONE > /etc/timezone && ln -s /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+printf 'Changing time zone...'
+cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
 
 ##########################
 ##    Setup configs...  ##
@@ -54,8 +64,8 @@ echo $TIMEZONE > /etc/timezone && ln -s /usr/share/zoneinfo/${TIMEZONE} /etc/loc
 ##     Other stuff...   ##
 ##########################
 # Set up metasploit
-/etc/init.d/postgresql start
-msfdb init
+# /etc/init.d/postgresql start
+# msfdb init
 
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
