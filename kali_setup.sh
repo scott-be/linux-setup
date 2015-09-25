@@ -65,6 +65,9 @@ cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
 printf 'Configuring Sublime Text...'
 cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
 
+printf 'Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
+cmd_exe "cd $HOME && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
+
 ##########################
 ##     Other stuff...   ##
 ##########################
@@ -78,9 +81,5 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 # Set favorites bar
 	# dconf read /org/gnome/shell/favorite-apps
 	# dconf write /org/gnome/shell/favorite-apps "[]"
-# Set gedit preferences
-# Set bash profile
-# Set tmux settings
-# Set vim settings
 # Change hostname
 	# http://www.blackmoreops.com/2013/12/12/change-hostname-kali-linux/#Change_hostname_permanently_without_reboot
