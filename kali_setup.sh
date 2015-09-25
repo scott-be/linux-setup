@@ -65,9 +65,8 @@ cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https:/
 ##########################
 ##     Other stuff...   ##
 ##########################
-# Set up metasploit
-# /etc/init.d/postgresql start
-# msfdb init
+printf 'Setting up metasploit...'
+cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
