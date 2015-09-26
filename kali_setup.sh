@@ -80,6 +80,6 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 # Disable the Intelligent Sidebar Option
 # Set favorites bar
 	# dconf read /org/gnome/shell/favorite-apps
-	# dconf write /org/gnome/shell/favorite-apps "[]"
+	# dconf write /org/gnome/shell/favorite-apps "['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'kali-msfconsole.desktop', 'kali-burpsuite.desktop', 'leafpad.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'chromium.desktop', 'gnome-control-center.desktop']"
 # Change hostname
 	# http://www.blackmoreops.com/2013/12/12/change-hostname-kali-linux/#Change_hostname_permanently_without_reboot
