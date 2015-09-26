@@ -17,61 +17,61 @@ TIMEZONE="America/New_York"
 ##########################
 ## First things first...##
 ##########################
-printf 'Change password...\n'
+printf '[+] Change password...\n'
 passwd
 
-printf 'Updating Kali...'
+printf '[+] Updating Kali...'
 cmd_exe "apt-get update && apt-get upgrade -y"
 
 ##########################
 ##      App Installs... ##
 ##########################
-printf 'Installing SSH server...'
+printf '[+] Installing SSH server...'
 cmd_exe "apt-get install -y openssh-server"
 
-printf 'Installing Sublime Text 3...'
+printf '[+] Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
-printf 'Installing Chromium...'
+printf '[+] Installing Chromium...'
 cmd_exe "apt-get install -y chromium"
 
 ##########################
 ##       Tweeks...      ##
 ##########################
-printf 'Disabling screen lock...'
+printf '[+] Disabling screen lock...'
 cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
 
-printf 'Disabling screensaver...'
+printf '[+] Disabling screensaver...'
 cmd_exe "gsettings set org.gnome.desktop.session idle-delay 0"
 
-printf 'Show home icon on desktop...'
+printf '[+] Show home icon on desktop...'
 cmd_exe "gsettings set org.gnome.nautilus.desktop home-icon-visible true"
 
-printf 'Show trash icon on desktop...'
+printf '[+] Show trash icon on desktop...'
 cmd_exe "gsettings set org.gnome.nautilus.desktop trash-icon-visible true"
 
-printf '12 hour time...'
+printf '[+] 12 hour time...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 
-printf 'Changing time zone...'
+printf '[+] Changing time zone...'
 cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
 
-printf 'Disabling super key...'
+printf '[+] Disabling super key...'
 cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
 
 ##########################
 ##    Setup configs...  ##
 ##########################
-printf 'Configuring Sublime Text...'
+printf '[+] Configuring Sublime Text...'
 cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
 
-printf 'Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
+printf '[+] Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
 cmd_exe "cd $HOME && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
 
 ##########################
 ##     Other stuff...   ##
 ##########################
-printf 'Setting up metasploit...'
+printf '[+] Setting up metasploit...'
 cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 
