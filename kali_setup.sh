@@ -85,7 +85,7 @@ printf '[+] Configuring Sublime Text...'
 cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
 
 printf '[+] Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
-cmd_exe "cd $HOME && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
+cmd_exe "cd $HOME && rm -rf && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
 
 printf '[+] Setting favorites bar...'
 cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'kali-msfconsole.desktop', 'kali-burpsuite.desktop', 'leafpad.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'chromium.desktop', 'gnome-control-center.desktop']\""
