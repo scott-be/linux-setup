@@ -39,7 +39,6 @@ if [ $HOSTNAME = "kali" ]; then
 	service network-manager force-reload
 fi
 
-
 ##########################
 ##   App Installs...    ##
 ##########################
@@ -74,7 +73,7 @@ printf '[+] Changing time zone...'
 cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
 
 printf '[+] Disabling super key...'
-cmd_exe "gsettings set org.gnome.mutter overlay-key"
+cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
 
 printf '[+] Disabling dash-to-dock autohide...'
 cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
