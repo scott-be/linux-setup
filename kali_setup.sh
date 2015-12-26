@@ -1,6 +1,5 @@
 cmd_exe () {
 	eval $@ >/dev/null 2>&1
-	# echo $1
 	if [ $? -eq 0 ]; then
 		printf "[\033[32mOK\033[0m]\n"
 	else
@@ -17,8 +16,11 @@ TIMEZONE="America/New_York"
 ##########################
 ## First things first...##
 ##########################
-printf '[+] Change password...\n'
-passwd
+chage -l root | grep 'Aug 10, 2015' &> /dev/null # Check if root PW has been changed
+if [ $? -eq 0 ]; then
+	printf '[+] Change password...\n'
+	passwd
+fi
 
 printf '[+] Updating Kali...'
 cmd_exe "apt-get update && apt-get upgrade -y"
