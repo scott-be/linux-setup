@@ -59,7 +59,10 @@ printf '[+] Changing time zone...'
 cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
 
 printf '[+] Disabling super key...'
-cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
+cmd_exe "gsettings set org.gnome.mutter overlay-key"
+
+printf '[+] Disabling dash-to-dock autohide...'
+cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
 
 ##########################
 ##    Setup configs...  ##
@@ -79,7 +82,6 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
-# Disable the Intelligent Sidebar Option
 # Set favorites bar
 	# dconf read /org/gnome/shell/favorite-apps
 	# dconf write /org/gnome/shell/favorite-apps "['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'kali-msfconsole.desktop', 'kali-burpsuite.desktop', 'leafpad.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'chromium.desktop', 'gnome-control-center.desktop']"
