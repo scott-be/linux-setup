@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cmd_exe () {
 	eval $@ >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
