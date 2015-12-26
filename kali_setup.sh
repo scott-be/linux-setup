@@ -27,8 +27,21 @@ fi
 printf '[+] Updating Kali...'
 cmd_exe "apt-get update && apt-get upgrade -y"
 
+if [ $HOSTNAME = "kali" ]; then 
+	printf '[+] Change hostname...\n'
+	OLD_HOSTNAME="$(hostname)"
+	echo 'Enter new hostname:'
+	read NEW_HOSTNAME
+	hostnamectl set-hostname $NEW_HOSTNAME
+	sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/g" /etc/hosts
+	/etc/init.d/hostname.sh start
+	service networking force-reload
+	service network-manager force-reload
+fi
+
+
 ##########################
-##      App Installs... ##
+##   App Installs...    ##
 ##########################
 printf '[+] Installing SSH server...'
 cmd_exe "apt-get install -y openssh-server"
@@ -40,7 +53,7 @@ printf '[+] Installing Chromium...'
 cmd_exe "apt-get install -y chromium"
 
 ##########################
-##       Tweeks...      ##
+##      Tweeks...       ##
 ##########################
 printf '[+] Disabling screen lock...'
 cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
@@ -87,5 +100,3 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 # Set favorites bar
 	# dconf read /org/gnome/shell/favorite-apps
 	# dconf write /org/gnome/shell/favorite-apps "['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'kali-msfconsole.desktop', 'kali-burpsuite.desktop', 'leafpad.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'chromium.desktop', 'gnome-control-center.desktop']"
-# Change hostname
-	# http://www.blackmoreops.com/2013/12/12/change-hostname-kali-linux/#Change_hostname_permanently_without_reboot
