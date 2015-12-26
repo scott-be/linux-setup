@@ -88,15 +88,11 @@ cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https:/
 printf '[+] Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
 cmd_exe "cd $HOME && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
 
+# Setting favorites bar
+cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'kali-msfconsole.desktop', 'kali-burpsuite.desktop', 'leafpad.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'chromium.desktop', 'gnome-control-center.desktop']\""
+
 ##########################
 ##     Other stuff...   ##
 ##########################
 printf '[+] Setting up metasploit...'
 cmd_exe "/etc/init.d/postgresql start && msfdb init"
-
-
-#=~=~=~=~=~=~=~=~=~=~=~=~#
-## TODO
-# Set favorites bar
-	# dconf read /org/gnome/shell/favorite-apps
-	# dconf write /org/gnome/shell/favorite-apps "['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'kali-msfconsole.desktop', 'kali-burpsuite.desktop', 'leafpad.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'chromium.desktop', 'gnome-control-center.desktop']"
