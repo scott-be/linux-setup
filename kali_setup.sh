@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+##########################
+##      Functions       ##
+##########################
 cmd_exe () {
 	eval $@ >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
@@ -7,6 +10,13 @@ cmd_exe () {
 	else
 		printf "[\033[31mFAIL\033[0m]\n"
 	fi
+}
+
+install_powerline () {
+	apt-get install powerline -y
+	echo "source '/usr/share/powerline/bindings/tmux/powerline.conf'" >> .tmux.conf
+	git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/
+	return 0
 }
 
 ##########################
@@ -81,6 +91,9 @@ cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-
 printf '[+] Disabling dash-to-dock autohide...'
 cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
 
+printf '[+] Install powerline for tmux...'
+cmd_exe "install_powerline"
+
 ##########################
 ##    Setup configs...  ##
 ##########################
@@ -98,3 +111,7 @@ cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gno
 ##########################
 printf '[+] Setting up metasploit...'
 cmd_exe "/etc/init.d/postgresql start && msfdb init"
+
+#=~=~=~=~=~=~=~=~=~=~=~=~#
+## TODO
+#
