@@ -12,13 +12,6 @@ cmd_exe () {
 	fi
 }
 
-install_powerline () {
-	apt-get install powerline -y
-	echo "source '/usr/share/powerline/bindings/tmux/powerline.conf'" >> .tmux.conf
-	git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/
-	return 0
-}
-
 ##########################
 ##      Variables       ##
 ##########################
@@ -92,7 +85,7 @@ printf '[+] Disabling dash-to-dock autohide...'
 cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
 
 printf '[+] Install powerline for tmux...'
-cmd_exe "install_powerline"
+cmd_exe "apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
 ##########################
 ##    Setup configs...  ##
