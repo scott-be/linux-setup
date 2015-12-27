@@ -75,6 +75,9 @@ cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE
 printf '[+] Disabling super key...'
 cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
 
+printf '[+] Setting Gnome extentions...'
+cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-shell-extensions.gcampax.github.com', 'refresh-wifi@kgshank.net', 'window-list@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']\""
+
 printf '[+] Disabling dash-to-dock autohide...'
 cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
 
