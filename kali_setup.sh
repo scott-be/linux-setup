@@ -90,6 +90,9 @@ cmd_exe "gsettings set org.gnome.nautilus.preferences always-use-location-entry 
 printf '[+] Creating text file template...'
 cmd_exe "touch $HOME/Templates/New\ Text\ File.txt"
 
+printf '[+] Setting caps lock as control...'
+cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
+
 ##########################
 ##     Eye Candy...     ##
 ##########################
