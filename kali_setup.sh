@@ -55,7 +55,7 @@ printf '[+] Installing Chromium...'
 cmd_exe "apt-get install -y chromium"
 
 ##########################
-##      Tweeks...       ##
+##      Tweaks...       ##
 ##########################
 printf '[+] Disabling screen lock...'
 cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
@@ -84,7 +84,16 @@ cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-
 printf '[+] Disabling dash-to-dock autohide...'
 cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
 
-printf '[+] Install powerline for tmux...'
+printf '[+] Enabling Nautulus location bar...'
+cmd_exe "gsettings set org.gnome.nautilus.preferences always-use-location-entry true"
+
+printf '[+] Creating text file template...'
+cmd_exe "touch $HOME/Templates/New\ Text\ File.txt"
+
+##########################
+##     Eye Candy...     ##
+##########################
+printf '[+] Installing powerline for tmux...'
 cmd_exe "apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
 ##########################
@@ -107,4 +116,8 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
-#
+# Install gnome-terminal theme
+# Set theme as default
+# Disable terminal bell
+# Disable network manager
+# Disable IPv6
