@@ -102,6 +102,10 @@ cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
 printf '[+] Installing powerline for tmux...'
 cmd_exe "apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
+printf '[+] Changing gnome-terminal profile...'
+cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-soda.xml"
+# Use `dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/Desktop/monokai-soda.xml` to export the current gnome-terminal settings.
+
 ##########################
 ##    Setup configs...  ##
 ##########################

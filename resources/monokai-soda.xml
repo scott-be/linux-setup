@@ -1,0 +1,17 @@
+[:600421b6-1751-41b5-9d98-4d5fa968183f]
+foreground-color='#f8f8f2'
+visible-name='Monokai Soda'
+palette=['#1A1A1A1A1A1A', '#F4F400005F5F', '#9898E0E02423', '#FAFA84841918', '#34346565A4A4', '#F4F400005F5F', '#5857D1D1EBEB', '#C4C4C5C5B5B5', '#62625E5E4C4C', '#F4F400005F5F', '#9898E0E02423', '#E0E0D5D46161', '#9D9C6564FFFF', '#F4F400005F5F', '#5857D1D1EBEB', '#F6F6F6F6EFEF']
+use-system-font=false
+use-theme-colors=false
+font='Meslo LG S DZ for Powerline 11'
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#f8f8f2'
+background-color='#272822'
+background-transparency-percent=13
+audible-bell=false
+
+[/]
+list=['600421b6-1751-41b5-9d98-4d5fa968183f']
+default=''
