@@ -93,6 +93,9 @@ cmd_exe "touch $HOME/Templates/New\ Text\ File.txt"
 printf '[+] Setting caps lock as control...'
 cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
 
+printf '[+] Disabling window snapping...'
+cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
+
 ##########################
 ##     Eye Candy...     ##
 ##########################
