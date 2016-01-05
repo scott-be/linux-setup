@@ -30,7 +30,7 @@ fi
 printf '[+] Updating Kali...'
 cmd_exe "apt-get update && apt-get upgrade -y"
 
-if [ $HOSTNAME = "kali" ]; then 
+if [ $HOSTNAME == "kali" ]; then 
 	printf '[+] Change hostname...\n'
 	OLD_HOSTNAME="$(hostname)"
 	echo 'Enter new hostname:'
