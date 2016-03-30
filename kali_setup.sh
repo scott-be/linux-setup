@@ -51,9 +51,6 @@ cmd_exe "apt-get install -y openssh-server"
 printf '[+] Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
-printf '[+] Installing Chromium...'
-cmd_exe "apt-get install -y chromium"
-
 ##########################
 ##      Tweaks...       ##
 ##########################
