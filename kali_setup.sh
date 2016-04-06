@@ -53,22 +53,22 @@ cmd_exe "apt-get install -y openssh-server"
 printf '  [+] Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
-printf 'Installing cifs-utils...'
+printf '  [+] Installing cifs-utils...'
 cmd_exe "apt-get install cifs-utils -y"
 
-printf 'Install mana-toolkit...'
+printf '  [+] Install mana-toolkit...'
 cmd_exe "apt-get install mana-toolkit -y"
 
-printf 'Installing shareenum...'
+printf '  [+] Installing shareenum...'
 cmd_exe "wget -O /var/tmp/shareenum_2.0_amd64.deb https://github.com/CroweCybersecurity/shareenum/releases/download/2.0/shareenum_2.0_amd64.deb && dpkg -i /var/tmp/shareenum_2.0_amd64.deb && rm /var/tmp/shareenum_2.0_amd64.deb"
 
-printf 'Installing Impacket...'
+printf '  [+] Installing Impacket...'
 cmd_exe "git clone https://github.com/CoreSecurity/impacket.git /sbtools/impacket && python /sbtools/impacket/setup.py install"
 
-printf 'Install net-creds...'
+printf '  [+] Install net-creds...'
 cmd_exe "git clone https://github.com/DanMcInerney/net-creds.git /sbtools/net-creds"
 
-printf 'Installing BetterCAP...'
+printf '  [+] Installing BetterCAP...'
 cmd_exe "sudo apt-get install build-essential ruby-dev libpcap-dev && gem install bettercap"
 
 ##########################
