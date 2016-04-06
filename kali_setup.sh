@@ -102,6 +102,28 @@ cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
 printf '  [+] Setting favorites bar...'
 cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop']\""
 
+printf "  [+] Nautilus Small Icons..."
+cmd_exe "gsettings set org.gnome.nautilus.icon-view default-zoom-level 'small'"
+
+##########################
+##   gedit Tweaks...   ##
+##########################
+printf '\e[1;4;94m[-] gedit Tweaks\e[0m\n'
+printf "  [+] gedit Audo Indent..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor auto-indent true"
+
+printf "  [+] gedit  Highlight Matching Brackets ..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor bracket-matching true"
+
+printf "  [+] gedit Display Line Numbers..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor display-line-numbers true"
+
+printf "  [+] gedit Highlight Current Line..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor highlight-current-line true"
+
+printf "  [+] gedit Tab Size..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
+
 ##########################
 ##   System Tweaks...   ##
 ##########################
