@@ -72,11 +72,8 @@ printf '  [+] Installing BetterCAP...'
 cmd_exe "sudo apt-get install build-essential ruby-dev libpcap-dev && gem install bettercap"
 
 ##########################
-##      Tweaks...       ##
+##    Gnome Tweaks...   ##
 ##########################
-#=~=~=~=~=~=~=~=~=#
-#  Gnome Tweaks   #
-#=~=~=~=~=~=~=~=~=#
 printf '\e[1;4;94m[-] Gnome Tweaks\e[0m\n'
 printf '  [+] Disabling screen lock...'
 cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
@@ -105,9 +102,9 @@ cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
 printf '  [+] Setting favorites bar...'
 cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop']\""
 
-#=~=~=~=~=~=~=~=~=#
-#  System Tweaks  #
-#=~=~=~=~=~=~=~=~=#
+##########################
+##   System Tweaks...   ##
+##########################
 printf '\e[1;4;94m[-] System Tweaks\e[0m\n'
 printf '  [+] 12 hour time...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
