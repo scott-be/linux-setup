@@ -144,6 +144,17 @@ cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:noca
 
 printf '   [+] Disabling IPv6...'
 cmd_exe "echo -e '# IPv6 disabled\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf && sysctl -p"
+
+# Testing
+## Completely Disable network-manager
+# printf '   [+] Disabling network-manager service...'
+# cmd_exe "systemctl stop NetworkManager.service && systemctl disable NetworkManager.service"
+
+# Testing
+## Disable only on wlan(0..12)mon interfaces
+# printf '   [+] Disabling network-manager on wlan interfaces...'
+# cmd_exe "echo -e '\n[keyfile]\nunmanaged-devices=interface-name:wlan0mon;interface-name:wlan1mon;interface-name:wlan2mon;interface-name:wlan3mon;interface-name:wlan4mon;interface-name:wlan5mon;interface-name:wlan6mon;interface-name:wlan7mon;interface-name:wlan8mon;interface-name:wlan9mon;interface-name:wlan10mon;interface-name:wlan11mon;interface-name:wlan12mon' >> /etc/NetworkManager/NetworkManager.conf"
+
 ##########################
 ##     Eye Candy...     ##
 ##########################
@@ -177,4 +188,3 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 # Install gnome-terminal theme
 # Set theme as default
 # Disable terminal bell
-# Disable network manager
