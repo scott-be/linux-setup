@@ -84,7 +84,7 @@ printf '  [+] Install net-creds...'
 cmd_exe "git clone https://github.com/DanMcInerney/net-creds.git /sbtools/net-creds"
 
 printf '  [+] Installing BetterCAP...'
-cmd_exe "sudo apt-get install build-essential ruby-dev libpcap-dev && gem install bettercap"
+cmd_exe "apt-get install build-essential ruby-dev libpcap-dev -y && gem install bettercap"
 
 ##########################
 ##    Gnome Tweaks...   ##
