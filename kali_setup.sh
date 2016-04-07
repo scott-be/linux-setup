@@ -49,7 +49,7 @@ cmd_exe "apt-get update && apt-get upgrade -y"
 if [ $HOSTNAME == "kali" ]; then 
 	printf '  \e[1;34m[+]\e[0m Change hostname...\n'
 	OLD_HOSTNAME="$(hostname)"
-	printf '  \e[34m[>]\e[0m Enter new hostname: '
+	printf '  \e[1;34m[>]\e[0m Enter new hostname: '
 	read NEW_HOSTNAME
 	hostnamectl set-hostname $NEW_HOSTNAME
 	sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/g" /etc/hosts
