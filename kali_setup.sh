@@ -32,7 +32,7 @@ fi
 ##########################
 ##  Regenerate SSH keys ##
 ##########################
-read -p "   [+] Regenerate SSH keys?...(Y/n)" -r
+read -p "  [+] Regenerate SSH keys?...(Y/n)" -r
 if [[ $REPLY == "Y" || $REPLY == "y" || -z $REPLY ]]; then
 	printf '  [+] Regenerating keys...'
     cmd_exe "rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server"
