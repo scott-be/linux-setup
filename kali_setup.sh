@@ -75,7 +75,7 @@ printf '  [+] Installing shareenum...'
 cmd_exe "wget -O /var/tmp/shareenum_2.0_amd64.deb https://github.com/CroweCybersecurity/shareenum/releases/download/2.0/shareenum_2.0_amd64.deb && dpkg -i /var/tmp/shareenum_2.0_amd64.deb && rm /var/tmp/shareenum_2.0_amd64.deb"
 
 printf '  [+] Installing Impacket...'
-cmd_exe "git clone https://github.com/CoreSecurity/impacket.git /sbtools/impacket && python /sbtools/impacket/setup.py install"
+cmd_exe "git clone https://github.com/CoreSecurity/impacket.git /sbtools/impacket && cd /sbtools/impacket/ && python setup.py install && cd $HOME"
 
 printf '  [+] Install mana-toolkit...'
 cmd_exe "apt-get install mana-toolkit -y && ln -s /usr/share/mana-toolkit/ /sbtools/mana-toolkit"
