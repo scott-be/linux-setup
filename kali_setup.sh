@@ -83,8 +83,9 @@ cmd_exe "apt-get install mana-toolkit -y && ln -s /usr/share/mana-toolkit/ /sbto
 printf '  [+] Install net-creds...'
 cmd_exe "git clone https://github.com/DanMcInerney/net-creds.git /sbtools/net-creds"
 
-printf '  [+] Installing BetterCAP...'
-cmd_exe "apt-get install build-essential ruby-dev libpcap-dev -y && gem install bettercap"
+# Disabling for now (takes long to run)
+# printf '  [+] Installing BetterCAP...'
+# cmd_exe "apt-get install build-essential ruby-dev libpcap-dev -y && gem install bettercap"
 
 ##########################
 ##    Gnome Tweaks...   ##
