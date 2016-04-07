@@ -49,7 +49,7 @@ cmd_exe "apt-get update && apt-get upgrade -y"
 if [ $HOSTNAME == "kali" ]; then 
 	printf '  [+] Change hostname...\n'
 	OLD_HOSTNAME="$(hostname)"
-	echo 'Enter new hostname:'
+	printf '   [>] Enter new hostname: '
 	read NEW_HOSTNAME
 	hostnamectl set-hostname $NEW_HOSTNAME
 	sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/g" /etc/hosts
@@ -156,7 +156,7 @@ cmd_exe "touch $HOME/Templates/New\ Text\ File.txt"
 printf '  [+] Setting caps lock as control...'
 cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
 
-printf '   [+] Disabling IPv6...'
+printf '  [+] Disabling IPv6...'
 cmd_exe "echo -e '# IPv6 disabled\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf && sysctl -p"
 
 # Testing
