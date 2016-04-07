@@ -22,8 +22,10 @@ TIMEZONE="America/New_York"
 ##        Setup         ##
 ##########################
 printf '\e[1;4;94m[-] Setup\e[0m\n'
-chage -l root | grep 'Aug 10, 2015' &> /dev/null # Check if root PW has been changed
-if [ $? -eq 0 ]; then
+CURRENT_PASS=`grep -w root /etc/shadow | cut -d: -f2`
+export SALT=`grep -w root /etc/shadow | cut -d$ -f3`
+GENPASS=$(perl -le 'print crypt("toor","\$6\$$ENV{SALT}\$")')
+if [ $GENPASS == $CURRENT_PASS ]; then
 	printf '  [+] Change password...\n'
 	passwd
 fi
