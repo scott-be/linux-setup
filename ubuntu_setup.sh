@@ -17,7 +17,6 @@ TIMEZONE="America/New_York"
 ##########################
 ## First things first...##
 ##########################
-
 printf '[+] Updating Ubuntu...'
 cmd_exe "apt-get update && apt-get upgrade -y"
 
