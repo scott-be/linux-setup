@@ -104,9 +104,6 @@ cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
 printf '  [+] Setting favorites bar...'
 cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop']\""
 
-printf "  [+] Nautilus Small Icons..."
-cmd_exe "gsettings set org.gnome.nautilus.icon-view default-zoom-level 'small'"
-
 ##########################
 ##   gedit Tweaks...   ##
 ##########################
