@@ -19,7 +19,7 @@ SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3103_amd64.deb"
 TIMEZONE="America/New_York"
 
 ##########################
-##        Setup         ##
+##   Change Password    ##
 ##########################
 printf '\e[1;4;94mSetup\e[0m\n'
 CURRENT_PASS=`grep -w root /etc/shadow | cut -d: -f2`
@@ -29,8 +29,6 @@ if [ $GENPASS == $CURRENT_PASS ]; then
 	printf '  [+] Change password...\n'
 	passwd
 fi
-
-printf '  [+] Updating Kali (may take a while)...'
 ##########################
 ##  Regenerate SSH keys ##
 ##########################
@@ -39,8 +37,15 @@ if [[ $REPLY == "Y" || $REPLY == "y" || -z $REPLY ]]; then
 	printf '  [+] Regenerating keys...'
     cmd_exe "rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server"
 fi
+##########################
+##      Update Kali     ##
+##########################
+printf '  [+] Updating Kali (This may take a while)...'
 cmd_exe "apt-get update && apt-get upgrade -y"
 
+##########################
+##    Change Hostname   ##
+##########################
 if [ $HOSTNAME == "kali" ]; then 
 	printf '  [+] Change hostname...\n'
 	OLD_HOSTNAME="$(hostname)"
@@ -193,6 +198,4 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
-# Install gnome-terminal theme
-# Set theme as default
 # Disable terminal bell
