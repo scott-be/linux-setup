@@ -31,6 +31,14 @@ if [ $GENPASS == $CURRENT_PASS ]; then
 fi
 
 printf '  [+] Updating Kali (may take a while)...'
+##########################
+##  Regenerate SSH keys ##
+##########################
+read -p "   [+] Regenerate SSH keys?...(Y/n)" -r
+if [[ $REPLY == "Y" || $REPLY == "y" || -z $REPLY ]]; then
+	printf '  [+] Regenerating keys...'
+    cmd_exe "rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server"
+fi
 cmd_exe "apt-get update && apt-get upgrade -y"
 
 if [ $HOSTNAME == "kali" ]; then 
