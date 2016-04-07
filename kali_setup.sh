@@ -21,7 +21,7 @@ TIMEZONE="America/New_York"
 ##########################
 ##        Setup         ##
 ##########################
-printf '\e[1;4;94m[-] Setup\e[0m\n'
+printf '\e[1;4;94mSetup\e[0m\n'
 CURRENT_PASS=`grep -w root /etc/shadow | cut -d: -f2`
 export SALT=`grep -w root /etc/shadow | cut -d$ -f3`
 GENPASS=$(perl -le 'print crypt("toor","\$6\$$ENV{SALT}\$")')
@@ -30,7 +30,7 @@ if [ $GENPASS == $CURRENT_PASS ]; then
 	passwd
 fi
 
-printf '  [+] Updating Kali...'
+printf '  [+] Updating Kali (may take a while)...'
 cmd_exe "apt-get update && apt-get upgrade -y"
 
 if [ $HOSTNAME == "kali" ]; then 
@@ -48,7 +48,7 @@ fi
 ##########################
 ##   App Installs...    ##
 ##########################
-printf '\e[1;4;94m[-] App Installs\e[0m\n'
+printf '\e[1;4;94mApp Installs\e[0m\n'
 printf '  [+] Installing SSH server...'
 cmd_exe "apt-get install -y openssh-server"
 
@@ -76,7 +76,7 @@ cmd_exe "sudo apt-get install build-essential ruby-dev libpcap-dev && gem instal
 ##########################
 ##    Gnome Tweaks...   ##
 ##########################
-printf '\e[1;4;94m[-] Gnome Tweaks\e[0m\n'
+printf '\e[1;4;94mGnome Tweaks\e[0m\n'
 printf '  [+] Disabling screen lock...'
 cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
 
@@ -107,11 +107,11 @@ cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gno
 ##########################
 ##   gedit Tweaks...   ##
 ##########################
-printf '\e[1;4;94m[-] gedit Tweaks\e[0m\n'
+printf '\e[1;4;94mgedit Tweaks\e[0m\n'
 printf "  [+] gedit Audo Indent..."
 cmd_exe "gsettings set org.gnome.gedit.preferences.editor auto-indent true"
 
-printf "  [+] gedit  Highlight Matching Brackets ..."
+printf "  [+] gedit Highlight Matching Brackets ..."
 cmd_exe "gsettings set org.gnome.gedit.preferences.editor bracket-matching true"
 
 printf "  [+] gedit Display Line Numbers..."
@@ -126,7 +126,7 @@ cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
 ##########################
 ##   System Tweaks...   ##
 ##########################
-printf '\e[1;4;94m[-] System Tweaks\e[0m\n'
+printf '\e[1;4;94mSystem Tweaks\e[0m\n'
 printf '  [+] 12 hour time...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 
@@ -145,7 +145,7 @@ cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:noca
 ##########################
 ##     Eye Candy...     ##
 ##########################
-printf '\e[1;4;94m[-] Eye Candy\e[0m\n'
+printf '\e[1;4;94mEye Candy\e[0m\n'
 printf '  [+] Installing powerline for tmux...'
 cmd_exe "apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
@@ -156,7 +156,7 @@ cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-so
 ##########################
 ##    Setup configs...  ##
 ##########################
-printf '\e[1;4;94m[-] Configs\e[0m\n'
+printf '\e[1;4;94mConfigs\e[0m\n'
 printf '  [+] Configuring Sublime Text...'
 cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
 
@@ -166,7 +166,7 @@ cmd_exe "cd $HOME && rm -rf && git clone https://github.com/scott-be/dotfiles.gi
 ##########################
 ##     Other stuff...   ##
 ##########################
-printf '\e[1;4;94m[-] Other Stuff\e[0m\n'
+printf '\e[1;4;94mOther Stuff\e[0m\n'
 printf '  [+] Setting up metasploit...'
 cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
