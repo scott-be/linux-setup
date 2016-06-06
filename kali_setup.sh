@@ -15,7 +15,7 @@ cmd_exe () {
 ##########################
 ##      Variables       ##
 ##########################
-SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3103_amd64.deb" ## ST3 Build 3103 64 bit
+SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3114_amd64.deb" ## ST3 Build 3103 64 bit
 TIMEZONE="America/New_York"
 
 ##########################
