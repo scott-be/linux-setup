@@ -83,9 +83,17 @@ cmd_exe "apt-get install mana-toolkit -y && ln -s /usr/share/mana-toolkit/ /sbto
 printf '  \e[1;34m[+]\e[0m Install net-creds...'
 cmd_exe "git clone https://github.com/DanMcInerney/net-creds.git /sbtools/net-creds"
 
-# Disabling for now (takes long to run)
-# printf '  \e[1;34m[+]\e[0m Installing BetterCAP...'
-# cmd_exe "apt-get install build-essential ruby-dev libpcap-dev -y && gem install bettercap"
+printf '  \e[1;34m[+]\e[0m Install dnsrecon...'
+cmd_exe "git clone https://github.com/darkoperator/dnsrecon.git /sbtools/dnsrecon"
+
+printf '  \e[1;34m[+]\e[0m Install MITMf...'
+cmd_exe "git clone https://github.com/byt3bl33d3r/MITMf.git /sbtools/MITMf"
+
+printf '  \e[1;34m[+]\e[0m Install MITMf...'
+cmd_exe "git clone https://github.com/PowerShellEmpire/Empire.git /sbtools/Empire"
+
+printf '  \e[1;34m[+]\e[0m Install MITMf...'
+cmd_exe "git clone https://github.com/SpiderLabs/Responder.git /sbtools/Responder"
 
 ##########################
 ##    Gnome Tweaks...   ##
