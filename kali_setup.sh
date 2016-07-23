@@ -116,7 +116,7 @@ printf '  \e[1;34m[+]\e[0m Disabling window snapping...'
 cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
 
 printf '  \e[1;34m[+]\e[0m Setting favorites bar...'
-cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop']\""
+cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['iceweasel.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']\""
 
 ##########################
 ##   gedit Tweaks...   ##
@@ -199,4 +199,3 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
-# Disable terminal bell
