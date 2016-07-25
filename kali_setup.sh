@@ -89,10 +89,10 @@ cmd_exe "git clone https://github.com/darkoperator/dnsrecon.git /sbtools/dnsreco
 printf '  \e[1;34m[+]\e[0m Install MITMf...'
 cmd_exe "git clone https://github.com/byt3bl33d3r/MITMf.git /sbtools/MITMf"
 
-printf '  \e[1;34m[+]\e[0m Install MITMf...'
+printf '  \e[1;34m[+]\e[0m Install PS Empire...'
 cmd_exe "git clone https://github.com/PowerShellEmpire/Empire.git /sbtools/Empire"
 
-printf '  \e[1;34m[+]\e[0m Install MITMf...'
+printf '  \e[1;34m[+]\e[0m Install Responder...'
 cmd_exe "git clone https://github.com/SpiderLabs/Responder.git /sbtools/Responder"
 
 ##########################
@@ -207,3 +207,4 @@ cmd_exe "/etc/init.d/postgresql start && msfdb init"
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
+# [ ] Download scripts (macsoof.sh, update_git_repos.sh)
