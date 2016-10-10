@@ -167,6 +167,9 @@ cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:noca
 printf '  \e[1;34m[+]\e[0m Disabling IPv6...'
 cmd_exe "echo -e '# IPv6 disabled\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf && sysctl -p"
 
+printf '  \e[1;34m[+]\e[0m Setting ST3 as default...'
+cmd_exe "cp resources/defaults.list /root/.local/share/applications/defaults.list"
+
 # Testing
 ## Completely Disable network-manager
 # printf '   \e[1;34m[+]\e[0m Disabling network-manager service...'
