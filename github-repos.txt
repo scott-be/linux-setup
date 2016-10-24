@@ -1,0 +1,26 @@
+##########################
+##      Linux Tools     ##
+##########################
+https://github.com/arthepsy/ssh-audit.git
+https://github.com/CoreSecurity/impacket.git
+https://github.com/DanMcInerney/net-creds.git
+https://github.com/darkoperator/dnsrecon.git
+https://github.com/byt3bl33d3r/MITMf.git
+https://github.com/PowerShellEmpire/Empire.git
+https://github.com/SpiderLabs/Responder.git
+https://github.com/adaptivethreat/BloodHound.git
+https://github.com/NetSPI/PowerUpSQL.git
+https://github.com/the-useless-one/pywerview.git
+https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
+
+https://github.com/nabla-c0d3/sslyze.git
+https://github.com/rbsec/sslscan.git
+
+##########################
+##      Powershell      ##
+##########################
+https://github.com/PowerShellMafia/PowerSploit.git
+https://github.com/nullbind/Powershellery.git
+https://github.com/samratashok/nishang.git
+https://github.com/NetSPI/PowerUpSQL
+https://github.com/Kevin-Robertson/Inveigh
