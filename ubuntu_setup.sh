@@ -11,7 +11,7 @@ cmd_exe () {
 ##########################
 ##      Variables       ##
 ##########################
-SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb"
+SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3126_amd64.deb"
 TIMEZONE="America/New_York"
 
 ##########################
