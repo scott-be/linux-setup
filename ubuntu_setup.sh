@@ -11,7 +11,7 @@ cmd_exe () {
 ##########################
 ##      Variables       ##
 ##########################
-SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3126_amd64.deb"
+SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3126_amd64.deb" ## ST3 Build 3126 64 bit
 TIMEZONE="America/New_York"
 
 ##########################
@@ -67,6 +67,36 @@ cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE
 
 printf '[+] Disabling super key...'
 cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
+
+##########################
+##   gedit Tweaks...   ##
+##########################
+printf '\e[1;4;94mgedit Tweaks\e[0m\n'
+printf "  \e[1;34m[+]\e[0m gedit Audo Indent..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor auto-indent true"
+
+printf "  \e[1;34m[+]\e[0m gedit Highlight Matching Brackets ..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor bracket-matching true"
+
+printf "  \e[1;34m[+]\e[0m gedit Display Line Numbers..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor display-line-numbers true"
+
+printf "  \e[1;34m[+]\e[0m gedit Highlight Current Line..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor highlight-current-line true"
+
+printf "  \e[1;34m[+]\e[0m gedit Tab Size..."
+cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
+
+##########################
+##     Eye Candy...     ##
+##########################
+printf '\e[1;4;94mEye Candy\e[0m\n'
+printf '  \e[1;34m[+]\e[0m Installing powerline for tmux...'
+cmd_exe "apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
+
+printf '  \e[1;34m[+]\e[0m Changing gnome-terminal profile...'
+cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-soda.xml"
+# Use `dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/Desktop/monokai-soda.xml` to export the current gnome-terminal settings.
 
 ##########################
 ##    Setup configs...  ##
