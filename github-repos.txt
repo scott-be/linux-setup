@@ -12,9 +12,12 @@ https://github.com/adaptivethreat/BloodHound.git
 https://github.com/NetSPI/PowerUpSQL.git
 https://github.com/the-useless-one/pywerview.git
 https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
+https://github.com/leebaird/discover.git
 
 https://github.com/nabla-c0d3/sslyze.git
 https://github.com/rbsec/sslscan.git
+https://github.com/radare/radare2.git
+https://github.com/ChrisTruncer/EyeWitness.git
 
 ##########################
 ##      Powershell      ##
@@ -22,5 +25,5 @@ https://github.com/rbsec/sslscan.git
 https://github.com/PowerShellMafia/PowerSploit.git
 https://github.com/nullbind/Powershellery.git
 https://github.com/samratashok/nishang.git
-https://github.com/NetSPI/PowerUpSQL
-https://github.com/Kevin-Robertson/Inveigh
+https://github.com/NetSPI/PowerUpSQL.git
+https://github.com/Kevin-Robertson/Inveigh.git
