@@ -68,6 +68,18 @@ cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE
 printf '  \e[1;34m[+]\e[0m Disabling super key...'
 cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
 
+printf '  \e[1;34m[+]\e[0m Creating text file template...'
+cmd_exe "touch $HOME/Templates/New\ Text\ File.txt"
+
+printf '  \e[1;34m[+]\e[0m Setting caps lock as control...'
+cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
+
+printf '  \e[1;34m[+]\e[0m Disabling IPv6...'
+cmd_exe "echo -e '# IPv6 disabled\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf && sysctl -p"
+
+printf '  \e[1;34m[+]\e[0m Setting ST3 as default...'
+cmd_exe "cp resources/defaults.list $HOME/.local/share/applications/defaults.list"
+
 ##########################
 ##   gedit Tweaks...   ##
 ##########################
