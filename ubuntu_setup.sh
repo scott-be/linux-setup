@@ -104,7 +104,7 @@ cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
 ##########################
 printf '\e[1;4;94mEye Candy\e[0m\n'
 printf '  \e[1;34m[+]\e[0m Installing powerline for tmux...'
-cmd_exe "apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
+cmd_exe "sudo apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
 printf '  \e[1;34m[+]\e[0m Changing gnome-terminal profile...'
 cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-soda.xml"
