@@ -18,22 +18,22 @@ TIMEZONE="America/New_York"
 ## First things first...##
 ##########################
 printf '[+] Updating Ubuntu...'
-cmd_exe "apt-get update && apt-get upgrade -y"
+cmd_exe "sudo apt-get update && sudo apt-get upgrade -y"
 
 ##########################
 ##      App Installs... ##
 ##########################
 printf '[+] Installing git...'
-cmd_exe "apt-get install -y git"
+cmd_exe "sudo apt-get install -y git"
 
 printf '[+] Installing SSH server...'
-cmd_exe "apt-get install -y openssh-server"
+cmd_exe "sudo apt-get install -y openssh-server"
 
 printf '[+] Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
 printf '[+] Installing Chromium...'
-cmd_exe "apt-get install -y chromium"
+cmd_exe "sudo apt-get install -y chromium"
 
 ##########################
 ##       Tweeks...      ##
