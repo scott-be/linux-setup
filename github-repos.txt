@@ -18,6 +18,8 @@ https://github.com/nabla-c0d3/sslyze.git
 https://github.com/rbsec/sslscan.git
 https://github.com/radare/radare2.git
 https://github.com/ChrisTruncer/EyeWitness.git
+https://github.com/dxa4481/truffleHog.git
+https://github.com/alexxy/netdiscover
 
 ##########################
 ##      Powershell      ##
