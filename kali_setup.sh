@@ -74,33 +74,6 @@ cmd_exe "apt-get install -y openssh-server"
 printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
-printf '  \e[1;34m[+]\e[0m Installing cifs-utils...'
-cmd_exe "apt-get install cifs-utils -y"
-
-printf '  \e[1;34m[+]\e[0m Installing shareenum...'
-cmd_exe "wget -O /var/tmp/shareenum_2.0_amd64.deb https://github.com/CroweCybersecurity/shareenum/releases/download/2.0/shareenum_2.0_amd64.deb && dpkg -i /var/tmp/shareenum_2.0_amd64.deb && rm /var/tmp/shareenum_2.0_amd64.deb"
-
-printf '  \e[1;34m[+]\e[0m Installing Impacket...'
-cmd_exe "git clone https://github.com/CoreSecurity/impacket.git /sbtools/impacket && cd /sbtools/impacket/ && python setup.py install && cd $HOME"
-
-printf '  \e[1;34m[+]\e[0m Install mana-toolkit...'
-cmd_exe "apt-get install mana-toolkit -y && ln -s /usr/share/mana-toolkit/ /sbtools/mana-toolkit"
-
-printf '  \e[1;34m[+]\e[0m Install net-creds...'
-cmd_exe "git clone https://github.com/DanMcInerney/net-creds.git /sbtools/net-creds"
-
-printf '  \e[1;34m[+]\e[0m Install dnsrecon...'
-cmd_exe "git clone https://github.com/darkoperator/dnsrecon.git /sbtools/dnsrecon"
-
-printf '  \e[1;34m[+]\e[0m Install MITMf...'
-cmd_exe "git clone https://github.com/byt3bl33d3r/MITMf.git /sbtools/MITMf"
-
-printf '  \e[1;34m[+]\e[0m Install PS Empire...'
-cmd_exe "git clone https://github.com/PowerShellEmpire/Empire.git /sbtools/Empire"
-
-printf '  \e[1;34m[+]\e[0m Install Responder...'
-cmd_exe "git clone https://github.com/SpiderLabs/Responder.git /sbtools/Responder"
-
 ##########################
 ##    Gnome Tweaks...   ##
 ##########################
