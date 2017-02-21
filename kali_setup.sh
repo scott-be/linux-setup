@@ -178,7 +178,7 @@ printf '  \e[1;34m[+]\e[0m Configuring Sublime Text...'
 cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
 
 printf '  \e[1;34m[+]\e[0m Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
-cmd_exe "cd $HOME && rm -rf && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
+cmd_exe "cd $HOME && rm -rf dotfiles && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
 
 ##########################
 ##     Other stuff...   ##
