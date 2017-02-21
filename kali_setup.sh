@@ -121,7 +121,7 @@ printf '  \e[1;34m[+]\e[0m Setting Gnome extentions...'
 cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-shell-extensions.gcampax.github.com', 'refresh-wifi@kgshank.net', 'window-list@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']\""
 
 printf '  \e[1;34m[+]\e[0m Disabling dash-to-dock autohide...'
-cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
+cmd_exe "dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed true"
 
 printf '  \e[1;34m[+]\e[0m Enabling Nautulus location bar...'
 cmd_exe "gsettings set org.gnome.nautilus.preferences always-use-location-entry true"
