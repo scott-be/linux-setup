@@ -14,4 +14,5 @@ https://github.com/rbsec/sslscan.git
 https://github.com/radare/radare2.git
 https://github.com/ChrisTruncer/EyeWitness.git
 https://github.com/dxa4481/truffleHog.git
-https://github.com/alexxy/netdiscover
+https://github.com/alexxy/netdiscover.git
+https://github.com/ShawnDEvans/smbmap.git
