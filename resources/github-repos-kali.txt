@@ -17,3 +17,4 @@ https://github.com/dxa4481/truffleHog.git
 https://github.com/alexxy/netdiscover.git
 https://github.com/ShawnDEvans/smbmap.git
 https://github.com/stampery/mongoaudit.git
+https://github.com/michenriksen/gitrob.git
