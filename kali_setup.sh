@@ -131,6 +131,9 @@ printf '\e[1;4;94mSystem Tweaks\e[0m\n'
 printf '  \e[1;34m[+]\e[0m 12 hour time...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 
+printf '  \e[1;34m[+]\e[0m Show date in Menu Bar...'
+cmd_exe "gsettings set org.gnome.desktop.interface clock-show-date true"
+
 printf '  \e[1;34m[+]\e[0m Changing time zone...'
 cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
 
