@@ -40,3 +40,6 @@ cd $DIR
 # TODO
 # [ ] Loop github repos file (resources/github-repos-kali.txt)
 # [ ] Install Impacket - cd /sbtools/impacket/ && python setup.py install
+## Install (requires interaction)
+# [ ] Install Empire - /sbtools/Empire/setup/install.sh
+# [ ] Install Empire - /sbtools/Veil/setup/setup.sh
