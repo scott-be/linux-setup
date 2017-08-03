@@ -71,6 +71,9 @@ printf '\e[1;4;94mApp Installs\e[0m\n'
 printf '  \e[1;34m[+]\e[0m Installing SSH server...'
 cmd_exe "apt-get install -y openssh-server"
 
+printf '  \e[1;34m[+]\e[0m Installing Meld...'
+cmd_exe "apt-get install -y meld"
+
 printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
@@ -123,6 +126,22 @@ cmd_exe "gsettings set org.gnome.gedit.preferences.editor highlight-current-line
 
 printf "  \e[1;34m[+]\e[0m gedit Tab Size..."
 cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
+
+##########################
+##   Meld Tweaks...   ##
+##########################
+printf '\e[1;4;94mMeld Tweaks\e[0m\n'
+printf "  \e[1;34m[+]\e[0m Enable Word Wrap..."
+cmd_exe "gsettings set org.gnome.meld wrap-mode 'char'"
+
+printf "  \e[1;34m[+]\e[0m Highlight Current Line..."
+cmd_exe "gsettings set org.gnome.meld highlight-current-line true"
+
+printf "  \e[1;34m[+]\e[0m Enable Syntax highlighting..."
+cmd_exe "gsettings set org.gnome.meld highlight-syntax true"
+
+printf "  \e[1;34m[+]\e[0m Show Line Numbers..."
+cmd_exe "gsettings set org.gnome.meld show-line-numbers true"
 
 ##########################
 ##   System Tweaks...   ##
