@@ -4,3 +4,4 @@ https://github.com/samratashok/nishang.git
 https://github.com/NetSPI/PowerUpSQL.git
 https://github.com/Kevin-Robertson/Inveigh.git
 https://github.com/jaredhaight/PSAttack.git
+https://github.com/fireeye/SessionGopher.git
