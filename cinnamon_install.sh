@@ -3,6 +3,7 @@
 # Changelog:
 #   2017-20-02 - Init
 #   2017-07-04 - Split install_cinnamon.sh into two files (install and setup)
+#   2017-10-06 - Removed the nemo restat. No workie workie.
 
 ##########################
 ##      Functions       ##
@@ -33,5 +34,5 @@ gsettings set org.nemo.desktop show-desktop-icons true
 printf '  \e[1;34m[+]\e[0m Copy patched nemo...'
 cmd_exe "cp resources/nemo /usr/local/bin/nemo"
 
-printf '  \e[1;34m[+]\e[0m Restart nemo...'
-cmd_exe "nemo -q && nemo -n"
+# printf '  \e[1;34m[+]\e[0m Restart nemo...'
+# cmd_exe "nemo -q && nemo -n"
