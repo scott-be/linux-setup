@@ -32,7 +32,7 @@ gsettings set org.nemo.desktop show-desktop-icons true
 # update-alternatives --config x-session-manager
 
 printf '  \e[1;34m[+]\e[0m Copy patched nemo...'
-cmd_exe "cp resources/nemo /usr/local/bin/nemo"
+cmd_exe "cp resources/nemo /usr/local/bin/nemo && cp resources/nemo /usr/bin/nemo"
 
 # printf '  \e[1;34m[+]\e[0m Restart nemo...'
 # cmd_exe "nemo -q && nemo -n"
