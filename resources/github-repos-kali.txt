@@ -19,3 +19,4 @@ https://github.com/ShawnDEvans/smbmap.git
 https://github.com/stampery/mongoaudit.git
 https://github.com/michenriksen/gitrob.git
 https://github.com/Veil-Framework/Veil.git
+https://github.com/wpscanteam/wpscan.git
