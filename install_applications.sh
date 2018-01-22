@@ -29,6 +29,9 @@ cmd_exe "sudo apt-get install -y git"
 printf '  \e[1;34m[+]\e[0m Installing SSH server...'
 cmd_exe "sudo apt-get install -y openssh-server"
 
+printf '  \e[1;34m[+]\e[0m Disable PC Beep...'
+cmd_exe "rmmod pcspkr && echo 'blacklist pcspkr' | sudo tee /etc/modprobe.d/nobeep.conf"
+
 printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
