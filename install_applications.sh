@@ -54,3 +54,6 @@ cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https:/
 
 printf '  \e[1;34m[+]\e[0m Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
 cmd_exe "cd $HOME && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
+
+printf '  \e[1;34m[+]\e[0m Installing powerline for tmux...'
+cmd_exe "sudo apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
