@@ -61,8 +61,8 @@ cmd_exe "dconf write /org/cinnamon/desktop/keybindings/wm/push-snap-left '[\"\"]
 ##     Nemo Tweeks    ##
 ########################
 printf '\e[1;4;94mNemo Tweeks\e[0m\n'
-printf '  \e[1;34m[+]\e[0m Show computer icon...'
-cmd_exe "dconf write /org/nemo/desktop/computer-icon-visible true"
+# printf '  \e[1;34m[+]\e[0m Show computer icon...'
+# cmd_exe "dconf write /org/nemo/desktop/computer-icon-visible true"
 
 printf '  \e[1;34m[+]\e[0m Show home icon...'
 cmd_exe "dconf write /org/nemo/desktop/home-icon-visible true"
