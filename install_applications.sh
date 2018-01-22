@@ -11,7 +11,6 @@ cmd_exe () {
 ##########################
 ##      Variables       ##
 ##########################
-SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3126_amd64.deb" ## ST3 Build 3126 64 bit
 TIMEZONE="America/New_York"
 
 ##########################
@@ -38,8 +37,11 @@ cmd_exe "sudo apt-get install -y tmux"
 printf '  \e[1;34m[+]\e[0m Installing VM Tools...'
 cmd_exe "sudo apt-get install -y open-vm-tools open-vm-tools-desktop"
 
+printf '  \e[1;34m[+]\e[0m Installing Bash Completion...'
+cmd_exe "sudo apt-get install -y bash-completion"
+
 printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
-cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
+cmd_exe "wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - && sudo apt-get install apt-transport-https -y && echo 'deb https://download.sublimetext.com/ apt/stable/' | sudo tee /etc/apt/sources.list.d/sublime-text.list && sudo apt update && sudo apt install sublime-text -y"
 
 printf '  \e[1;34m[+]\e[0m Installing Chromium...'
 cmd_exe "sudo apt-get install -y chromium"
