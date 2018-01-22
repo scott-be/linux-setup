@@ -35,6 +35,9 @@ cmd_exe "rmmod pcspkr && echo 'blacklist pcspkr' | sudo tee /etc/modprobe.d/nobe
 printf '  \e[1;34m[+]\e[0m Installing tmux...'
 cmd_exe "sudo apt-get install -y tmux"
 
+printf '  \e[1;34m[+]\e[0m Installing VM Tools...'
+cmd_exe "sudo apt-get install -y open-vm-tools open-vm-tools-desktop"
+
 printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
 cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
 
