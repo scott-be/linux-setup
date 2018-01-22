@@ -16,7 +16,7 @@ TIMEZONE="America/New_York"
 ##########################
 ## First things first...##
 ##########################
-printf '  \e[1;34m[+]\e[0m Updating Ubuntu...'
+printf '  \e[1;34m[+]\e[0m Updating Linux...'
 cmd_exe "sudo apt-get update && sudo apt-get upgrade -y"
 
 ##########################
