@@ -106,6 +106,9 @@ printf '\e[1;4;94mEye Candy\e[0m\n'
 printf '  \e[1;34m[+]\e[0m Installing powerline for tmux...'
 cmd_exe "sudo apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
+printf '  \e[1;34m[+]\e[0m Install utilities for powerline...'
+cmd_exe "sudo pip install psutil netifaces"
+
 printf '  \e[1;34m[+]\e[0m Changing gnome-terminal profile...'
 cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-soda.xml"
 # Use `dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/Desktop/monokai-soda.xml` to export the current gnome-terminal settings.
