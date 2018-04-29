@@ -11,29 +11,13 @@ cmd_exe () {
 ##########################
 ##      Variables       ##
 ##########################
-SUBLIME_URL="https://download.sublimetext.com/sublime-text_build-3126_amd64.deb" ## ST3 Build 3126 64 bit
 TIMEZONE="America/New_York"
 
 ##########################
 ## First things first...##
 ##########################
-printf '  \e[1;34m[+]\e[0m Updating Ubuntu...'
+printf '  \e[1;34m[+]\e[0m Updating gnome...'
 cmd_exe "sudo apt-get update && sudo apt-get upgrade -y"
-
-##########################
-##      App Installs... ##
-##########################
-printf '  \e[1;34m[+]\e[0m Installing git...'
-cmd_exe "sudo apt-get install -y git"
-
-printf '  \e[1;34m[+]\e[0m Installing SSH server...'
-cmd_exe "sudo apt-get install -y openssh-server"
-
-printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
-cmd_exe "wget -O $HOME/sublime_text_3.deb $SUBLIME_URL && sudo dpkg -i $HOME/sublime_text_3.deb && rm $HOME/sublime_text_3.deb"
-
-printf '  \e[1;34m[+]\e[0m Installing Chromium...'
-cmd_exe "sudo apt-get install -y chromium"
 
 ##########################
 ##       Tweeks...      ##
@@ -113,24 +97,11 @@ printf '  \e[1;34m[+]\e[0m Changing gnome-terminal profile...'
 cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-soda.xml"
 # Use `dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/Desktop/monokai-soda.xml` to export the current gnome-terminal settings.
 
-##########################
-##    Setup configs...  ##
-##########################
-printf '  \e[1;34m[+]\e[0m Configuring Sublime Text...'
-cmd_exe "rm -rf $HOME/.config/sublime-text-3/Packages/User/ && git clone https://github.com/scott-be/Sublime-Text-3-Settings.git $HOME/.config/sublime-text-3/Packages/User/"
-
-printf '  \e[1;34m[+]\e[0m Setting up dotfiles (mc, bash, tmux, vim, etc.)...'
-cmd_exe "cd $HOME && git clone https://github.com/scott-be/dotfiles.git && bash dotfiles/make.sh --linux && cd -"
-
-
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
-	# refresh clock?
-	# reboot?
 	# install/enable gnome extentions (side bar; stuff like that)
 	# install https://extensions.gnome.org/extension/120/system-monitor/
 	# enable extensions
 		# gsettings get org.gnome.shell enabled-extensions
 		# gsettings set org.gnome.shell enabled-extensions "['weather-extension@xeked.com', 'axemenu@wheezy', 'removeaccesibility@lomegor']"
 	# https://extensions.gnome.org/extension/584/taskbar/
-
