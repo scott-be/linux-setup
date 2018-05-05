@@ -14,12 +14,6 @@ cmd_exe () {
 TIMEZONE="America/New_York"
 
 ##########################
-## First things first...##
-##########################
-printf '  \e[1;34m[+]\e[0m Updating gnome...'
-cmd_exe "sudo apt-get update && sudo apt-get upgrade -y"
-
-##########################
 ##       Tweeks...      ##
 ##########################
 printf '  \e[1;34m[+]\e[0m Disabling screen lock...'
@@ -43,6 +37,12 @@ cmd_exe "gsettings set org.gnome.nautilus.desktop trash-icon-visible true"
 printf '  \e[1;34m[+]\e[0m Add minimize, maximize, close buttons to windows...'
 cmd_exe "gsettings set  org.gnome.shell.overrides button-layout ':minimize,maximize,close'"
 
+printf '  \e[1;34m[+]\e[0m Setting Gnome extentions...'
+cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-shell-extensions.gcampax.github.com', 'refresh-wifi@kgshank.net', 'window-list@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']\""
+
+printf '  \e[1;34m[+]\e[0m Disabling dash-to-dock autohide...'
+cmd_exe "dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed true"
+
 printf '  \e[1;34m[+]\e[0m 12 hour time...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 
@@ -61,8 +61,17 @@ cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:noca
 printf '  \e[1;34m[+]\e[0m Disabling IPv6...'
 cmd_exe "echo -e '# IPv6 disabled\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf && sysctl -p"
 
-printf '  \e[1;34m[+]\e[0m Setting ST3 as default...'
-cmd_exe "cp resources/defaults.list $HOME/.local/share/applications/defaults.list"
+printf '  \e[1;34m[+]\e[0m Disabling dash-to-dock autohide...'
+cmd_exe "dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed true"
+
+printf '  \e[1;34m[+]\e[0m Enabling Nautulus location bar...'
+cmd_exe "gsettings set org.gnome.nautilus.preferences always-use-location-entry true"
+
+printf '  \e[1;34m[+]\e[0m Disabling window snapping...'
+cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
+
+printf '  \e[1;34m[+]\e[0m Setting favorites bar...'
+cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['firefox-esr.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']\""
 
 ##########################
 ##   gedit Tweaks...   ##
@@ -87,15 +96,19 @@ cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
 ##     Eye Candy...     ##
 ##########################
 printf '\e[1;4;94mEye Candy\e[0m\n'
-printf '  \e[1;34m[+]\e[0m Installing powerline for tmux...'
-cmd_exe "sudo apt-get install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
-
-printf '  \e[1;34m[+]\e[0m Install utilities for powerline...'
-cmd_exe "sudo pip install psutil netifaces"
-
 printf '  \e[1;34m[+]\e[0m Changing gnome-terminal profile...'
 cmd_exe "dconf load /org/gnome/terminal/legacy/profiles:/ < resources/monokai-soda.xml"
 # Use `dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/Desktop/monokai-soda.xml` to export the current gnome-terminal settings.
+
+##########################
+##     Other Scripts    ##
+##########################
+read -p $'  \e[1;34m[>]\e[0m Run install-applications-general.sh?...(Y/n)' -r
+if [[ $REPLY == "Y" || $REPLY == "y" || -z $REPLY ]]; then
+	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	"$DIR/install-applications-general.sh"
+fi
+
 
 #=~=~=~=~=~=~=~=~=~=~=~=~#
 ## TODO
