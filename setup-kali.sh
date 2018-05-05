@@ -45,7 +45,7 @@ cmd_exe "apt update"
 printf '  \e[1;34m[+]\e[0m Removing apt-listchanges...'
 cmd_exe "apt purge apt-listchanges -y"
 
-printf '  \e[1;34m[+]\e[0m Updating Kali (apt upgrade)...'
+printf '  \e[1;34m[+]\e[0m Upgrading Kali (apt upgrade)...'
 cmd_exe "apt update && apt upgrade -y"
 
 ##########################
