@@ -22,3 +22,4 @@ https://github.com/Veil-Framework/Veil.git
 https://github.com/wpscanteam/wpscan.git
 https://github.com/OJ/gobuster.git
 https://github.com/lanjelot/patator.git
+https://github.com/subfinder/subfinder.git
