@@ -29,6 +29,10 @@ cmd_exe "apt-get install mana-toolkit -y && ln -s /usr/share/mana-toolkit/ /sbto
 printf '  \e[1;34m[+]\e[0m Install go...'
 cmd_exe "apt-get install golang -y"
 
+printf '  \e[1;34m[+]\e[0m Install bettercap...'
+cmd_exe "apt-get install bettercap -y"
+
+
 printf '\e[1;4;94mCloning repos\e[0m\n'
 mkdir -p /sbtools
 cd /sbtools
