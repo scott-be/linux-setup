@@ -28,6 +28,9 @@ cmd_exe "sudo apt install -y git"
 printf '  \e[1;34m[+]\e[0m Installing Meld...'
 cmd_exe "apt install -y meld"
 
+printf '  \e[1;34m[+]\e[0m Installing Locate...'
+cmd_exe "apt install -y locate && updatedb"
+
 printf '  \e[1;34m[+]\e[0m Installing SSH server...'
 cmd_exe "sudo apt install -y openssh-server"
 
