@@ -24,3 +24,5 @@ https://github.com/OJ/gobuster.git
 https://github.com/lanjelot/patator.git
 https://github.com/subfinder/subfinder.git
 https://github.com/fox-it/mitm6.git
+https://github.com/CroweCybersecurity/ad-ldap-enum.git
+https://github.com/OWASP/Amass.git
