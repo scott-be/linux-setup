@@ -29,25 +29,25 @@ printf '  \e[1;34m[+]\e[0m Enable desktop icons...'
 cmd_exe "gsettings set org.gnome.desktop.background show-desktop-icons true"
 
 printf '  \e[1;34m[+]\e[0m Show home icon on desktop...'
-cmd_exe "gsettings set org.gnome.nautilus.desktop home-icon-visible true"
+cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons show-home true"
 
 printf '  \e[1;34m[+]\e[0m Show trash icon on desktop...'
-cmd_exe "gsettings set org.gnome.nautilus.desktop trash-icon-visible true"
+cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons show-trash true"
 
-printf '  \e[1;34m[+]\e[0m Add minimize, maximize, close buttons to windows...'
-cmd_exe "gsettings set  org.gnome.shell.overrides button-layout ':minimize,maximize,close'"
+printf '  \e[1;34m[+]\e[0m Set Desktop Icon Size Small...'
+cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons icon-size 'small'"
 
 printf '  \e[1;34m[+]\e[0m Setting Gnome extentions...'
-cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-shell-extensions.gcampax.github.com', 'refresh-wifi@kgshank.net', 'window-list@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']\""
+cmd_exe "gsettings set org.gnome.shell enabled-extensions \"['places-menu@gnome-shell-extensions.gcampax.github.com', 'refresh-wifi@kgshank.net', 'window-list@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano']\""
 
 printf '  \e[1;34m[+]\e[0m Disabling dash-to-dock autohide...'
-cmd_exe "dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed true"
+cmd_exe "gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true"
 
 printf '  \e[1;34m[+]\e[0m 12 hour time...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-format '12h'"
 
 printf '  \e[1;34m[+]\e[0m Changing time zone...'
-cmd_exe "echo $TIMEZONE > /etc/timezone && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
+cmd_exe "timedatectl set-timezone $TIMEZONE"
 
 printf '  \e[1;34m[+]\e[0m Disabling super key...'
 cmd_exe "gsettings set org.gnome.mutter overlay-key ''"
@@ -61,17 +61,32 @@ cmd_exe "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:noca
 printf '  \e[1;34m[+]\e[0m Disabling IPv6...'
 cmd_exe "echo -e '# IPv6 disabled\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf && sysctl -p"
 
-printf '  \e[1;34m[+]\e[0m Disabling dash-to-dock autohide...'
-cmd_exe "dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed true"
-
 printf '  \e[1;34m[+]\e[0m Enabling Nautulus location bar...'
 cmd_exe "gsettings set org.gnome.nautilus.preferences always-use-location-entry true"
 
 printf '  \e[1;34m[+]\e[0m Disabling window snapping...'
-cmd_exe "gsettings set org.gnome.shell.overrides edge-tiling false"
+cmd_exe "gsettings set org.gnome.mutter edge-tiling false"
 
 printf '  \e[1;34m[+]\e[0m Setting favorites bar...'
-cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['firefox-esr.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']\""
+cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['firefox-esr.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'code.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']\""
+
+printf '  \e[1;34m[+]\e[0m Setting Nautilus Icon Size...'
+cmd_exe "gsettings set org.gnome.nautilus.icon-view default-zoom-level 'small'"
+
+printf '  \e[1;34m[+]\e[0m Disabling Automatic Suspend...'
+cmd_exe "gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing' && gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'"
+
+printf '  \e[1;34m[+]\e[0m Disabling Bell...'
+cmd_exe "gsettings set org.gnome.desktop.wm.preferences audible-bell false"
+
+printf '  \e[1;34m[+]\e[0m Setting Number of Workspaces...'
+cmd_exe "gsettings set org.gnome.desktop.wm.preferences num-workspaces 1"
+
+printf '  \e[1;34m[+]\e[0m Setting Static Workspaces...'
+cmd_exe "gsettings set org.gnome.mutter dynamic-workspaces false"
+
+printf '  \e[1;34m[+]\e[0m Setting Wallpaper...'
+cmd_exe "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/symbolics-2.jpg'"
 
 ##########################
 ##   gedit Tweaks...   ##
