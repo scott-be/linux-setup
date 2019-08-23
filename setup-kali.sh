@@ -58,10 +58,15 @@ if [ $HOSTNAME == "kali" ]; then
 	read NEW_HOSTNAME
 	hostnamectl set-hostname $NEW_HOSTNAME
 	sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/g" /etc/hosts
-	/etc/init.d/hostname.sh start
 	service networking force-reload
 	service network-manager force-reload
 fi
+
+##########################
+##    Change Timezone   ##
+##########################
+printf '  \e[1;34m[+]\e[0m Setting Timezone...'
+cmd_exe "timedatectl set-timezone $TIMEZONE"
 
 ##########################
 ##     Other stuff...   ##
