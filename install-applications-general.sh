@@ -20,6 +20,12 @@ printf '  \e[1;34m[+]\e[0m Updating Linux...'
 cmd_exe "sudo apt update && sudo apt upgrade -y"
 
 ##########################
+##    Change Timezone   ##
+##########################
+printf '  \e[1;34m[+]\e[0m Setting Timezone...'
+cmd_exe "timedatectl set-timezone $TIMEZONE"
+
+##########################
 ##      App Installs... ##
 ##########################
 printf '  \e[1;34m[+]\e[0m Installing git...'
@@ -49,8 +55,14 @@ cmd_exe "sudo apt install -y bash-completion"
 printf '  \e[1;34m[+]\e[0m Installing Sublime Text 3...'
 cmd_exe "wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - && sudo apt install apt-transport-https -y && echo 'deb https://download.sublimetext.com/ apt/stable/' | sudo tee /etc/apt/sources.list.d/sublime-text.list && sudo apt update && sudo apt install sublime-text -y"
 
+printf '  \e[1;34m[+]\e[0m Installing VS Code...'
+cmd_exe "wget -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868 && sudo apt install /tmp/vscode.deb; rm /tmp/vscode.deb"
+
 printf '  \e[1;34m[+]\e[0m Installing Chromium...'
 cmd_exe "sudo apt install -y chromium"
+
+printf '  \e[1;34m[+]\e[0m Installing dconf-editor...'
+cmd_exe "sudo apt install -y dconf-editor"
 
 ##########################
 ##    Setup configs...  ##
