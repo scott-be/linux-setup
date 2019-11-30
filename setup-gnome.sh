@@ -29,10 +29,12 @@ printf '  \e[1;34m[+]\e[0m Enable desktop icons...'
 cmd_exe "gsettings set org.gnome.desktop.background show-desktop-icons true"
 
 printf '  \e[1;34m[+]\e[0m Show home icon on desktop...'
-cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons show-home true"
+# cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons show-home true"
+cmd_exe "gsettings set org.gnome.nautilus.desktop home-icon-visible true"
 
 printf '  \e[1;34m[+]\e[0m Show trash icon on desktop...'
-cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons show-trash true"
+# cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons show-trash true"
+cmd_exe "gsettings set org.gnome.nautilus.desktop trash-icon-visible true"
 
 printf '  \e[1;34m[+]\e[0m Set Desktop Icon Size Small...'
 cmd_exe "gsettings set org.gnome.shell.extensions.desktop-icons icon-size 'small'"
@@ -68,7 +70,8 @@ printf '  \e[1;34m[+]\e[0m Disabling window snapping...'
 cmd_exe "gsettings set org.gnome.mutter edge-tiling false"
 
 printf '  \e[1;34m[+]\e[0m Setting favorites bar...'
-cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['firefox-esr.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'code.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']\""
+# cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['firefox-esr.desktop', 'gnome-terminal.desktop', 'org.gnome.Nautilus.desktop', 'gnome-tweak-tool.desktop', 'sublime_text.desktop', 'code.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']\""
+cmd_exe "dconf write /org/gnome/shell/favorite-apps \"['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime-text_subl.desktop', 'gnome-control-center.desktop']\""
 
 printf '  \e[1;34m[+]\e[0m Setting Nautilus Icon Size...'
 cmd_exe "gsettings set org.gnome.nautilus.icon-view default-zoom-level 'small'"
@@ -85,8 +88,8 @@ cmd_exe "gsettings set org.gnome.desktop.wm.preferences num-workspaces 1"
 printf '  \e[1;34m[+]\e[0m Setting Static Workspaces...'
 cmd_exe "gsettings set org.gnome.mutter dynamic-workspaces false"
 
-printf '  \e[1;34m[+]\e[0m Setting Wallpaper...'
-cmd_exe "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/symbolics-2.jpg'"
+# printf '  \e[1;34m[+]\e[0m Setting Wallpaper...'
+# cmd_exe "gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/symbolics-2.jpg'"
 
 ##########################
 ##   gedit Tweaks...   ##
