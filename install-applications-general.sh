@@ -58,8 +58,8 @@ cmd_exe "wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo ap
 printf '  \e[1;34m[+]\e[0m Installing VS Code...'
 cmd_exe "wget -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868 && sudo apt install /tmp/vscode.deb; rm /tmp/vscode.deb"
 
-printf '  \e[1;34m[+]\e[0m Installing Chromium...'
-cmd_exe "sudo apt install -y chromium"
+#printf '  \e[1;34m[+]\e[0m Installing Chromium...'
+#cmd_exe "sudo apt install -y chromium"
 
 printf '  \e[1;34m[+]\e[0m Installing dconf-editor...'
 cmd_exe "sudo apt install -y dconf-editor"
