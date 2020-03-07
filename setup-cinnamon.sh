@@ -93,3 +93,12 @@ cmd_exe "dconf write /org/nemo/preferences/show-home-icon-toolbar true"
 
 printf '  \e[1;34m[+]\e[0m Nemo - Show Location Bar...'
 cmd_exe "dconf write /org/nemo/preferences/show-location-entry true"
+
+## TODO
+# Install BlueMenta
+# git clone https://github.com/mate-desktop/mate-themes.git
+# cp -r mate-themes/desktop-themes/BlueMenta ~/.themes
+# rm -rf mate-themes/
+# 
+# Show desktop Icons on all monitors
+# dconf write /org/nemo/desktop/desktop-layout "'true::false'"
