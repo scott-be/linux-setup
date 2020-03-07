@@ -24,10 +24,10 @@ printf '  \e[1;34m[+]\e[0m Installing shareenum...'
 cmd_exe "wget -O /var/tmp/shareenum_2.0_amd64.deb https://github.com/CroweCybersecurity/shareenum/releases/download/2.0/shareenum_2.0_amd64.deb && dpkg -i /var/tmp/shareenum_2.0_amd64.deb && rm /var/tmp/shareenum_2.0_amd64.deb"
 
 printf '  \e[1;34m[+]\e[0m Installing Various Dependencies (apt)...'
-cmd_exe "apt install -y python-dev libldap2-dev libsasl2-dev libssl-dev"
+cmd_exe "apt install -y python3-pip python-dev libldap2-dev libsasl2-dev libssl-dev"
 
 printf '  \e[1;34m[+]\e[0m Installing Various Dependencies (pip)...'
-cmd_exe "pip install python-ldap"
+cmd_exe "pip3 install python-ldap"
 
 # printf '  \e[1;34m[+]\e[0m Install go...'
 # cmd_exe "apt install golang -y"
@@ -43,6 +43,6 @@ done < $DIR/resources/github-repos-kali.txt
 
 printf '\e[1;4;94mClone Repo Setup\e[0m\n'
 printf '  \e[1;34m[+]\e[0m Installing impacket...'
-cmd_exe "cd /sbtools/impacket/ && python setup.py install"
+cmd_exe "cd /sbtools/impacket/ && python3 setup.py install"
 
 cd $DIR
