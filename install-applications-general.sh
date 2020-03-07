@@ -80,7 +80,7 @@ printf '  \e[1;34m[+]\e[0m Installing powerline for tmux...'
 cmd_exe "sudo apt install powerline -y && git clone https://github.com/powerline/fonts.git && fonts/install.sh && rm -rf fonts/"
 
 printf '  \e[1;34m[+]\e[0m Install utilities for powerline...'
-cmd_exe "sudo pip install psutil netifaces"
+cmd_exe "sudo pip3 install psutil netifaces"
 
 ##########################
 ##   Meld Tweaks...   ##
