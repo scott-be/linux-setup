@@ -17,10 +17,10 @@ TIMEZONE="America/New_York"
 ##       Tweeks...      ##
 ##########################
 printf '  \e[1;34m[+]\e[0m Disabling screen lock...'
-cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true"
+cmd_exe "gsettings set org.gnome.desktop.lockdown disable-lock-screen true; gsettings set apps.light-locker lock-on-suspend false"
 
 printf '  \e[1;34m[+]\e[0m Disabling screensaver...'
-cmd_exe "gsettings set org.gnome.desktop.session idle-delay 0"
+cmd_exe "gsettings set org.gnome.desktop.session idle-delay 0; gsettings set apps.light-locker lock-after-screensaver 0"
 
 printf '  \e[1;34m[+]\e[0m Show date in menu bar...'
 cmd_exe "gsettings set org.gnome.desktop.interface clock-show-date true"
@@ -98,7 +98,7 @@ printf '\e[1;4;94mgedit Tweaks\e[0m\n'
 printf "  \e[1;34m[+]\e[0m gedit Audo Indent..."
 cmd_exe "gsettings set org.gnome.gedit.preferences.editor auto-indent true"
 
-printf "  \e[1;34m[+]\e[0m gedit Highlight Matching Brackets ..."
+printf "  \e[1;34m[+]\e[0m gedit Highlight Matching Brackets..."
 cmd_exe "gsettings set org.gnome.gedit.preferences.editor bracket-matching true"
 
 printf "  \e[1;34m[+]\e[0m gedit Display Line Numbers..."
@@ -109,6 +109,35 @@ cmd_exe "gsettings set org.gnome.gedit.preferences.editor highlight-current-line
 
 printf "  \e[1;34m[+]\e[0m gedit Tab Size..."
 cmd_exe "gsettings set org.gnome.gedit.preferences.editor tabs-size 4"
+
+#################################
+##   Xfce Mousepad Tweaks...   ##
+#################################
+printf '\e[1;4;94mXfce Mousepad Tweaks\e[0m\n'
+printf "  \e[1;34m[+]\e[0m Mousepad Font..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.view font-name 'Monospace 10'"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Highlight Current Line..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.view highlight-current-line true"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Highlight Matching Brackets..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.view match-braces true"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Display Line Numbers..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.view show-line-numbers true"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Tab Size..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.view tab-width 4"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Always Show Tabs..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.window always-show-tabs true"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Show Statusbar..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.window statusbar-visible true"
+
+printf "  \e[1;34m[+]\e[0m Mousepad Show Toolbar..."
+cmd_exe "gsettings set org.xfce.mousepad.preferences.window toolbar-visible true"
+
 
 ##########################
 ##     Eye Candy...     ##
